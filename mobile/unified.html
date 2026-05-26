@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUYBIT Unified Trading (Mobile)</title>
+  <link rel="stylesheet" href="styles.mobile.css" />
+</head>
+<body>
+  <div class="global-nav">
+    <a class="global-link" href="overview.html">Overview</a>
+    <a class="global-link" href="assets.html">Assets</a>
+    <a class="global-link" href="pnl.html">P&L</a>
+    <a class="global-link" href="trade.html">Trade</a>
+    <a class="global-link active" href="unified.html">Unified</a>
+    <a class="global-link" href="withdraw.html">Withdraw</a>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="../buybit logo.png" alt="BUYBIT" class="brand-logo" />
+        <span>BUYBIT</span>
+      </div>
+      <nav class="nav-menu">
+        <a class="nav-item" href="overview.html"><span></span>Overview</a>
+        <a class="nav-item" href="assets.html"><span></span>Assets Overview</a>
+        <a class="nav-item active" href="unified.html"><span></span>Unified Trading</a>
+        <div class="nav-heading">Analysis</div>
+        <a class="nav-item" href="pnl.html"><span></span>P&amp;L Analysis</a>
+        <a class="nav-item" href="trade.html"><span></span>Trading Panel</a>
+        <div class="nav-heading">Tools</div>
+        <a class="nav-item" href="withdraw.html"><span></span>Withdraw</a>
+      </nav>
+    </aside>
+    <div class="main-panel">
+      <header class="topbar">
+        <div class="top-left">
+          <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+          <div class="breadcrumbs">
+            <strong>BUYBIT</strong>
+            <span>•</span>
+            <span>Unified Trading</span>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-secondary">Deposit</button>
+          <button class="icon-btn">🔍</button>
+          <button class="icon-btn">🌐</button>
+          <button class="profile-btn">MNT</button>
+          <button class="btn btn-secondary logout-btn">Logout</button>
+        </div>
+      </header>
+      <main class="content">
+        <section class="section section-panel">
+          <div class="section-header">
+            <div>
+              <h2>Unified Trading</h2>
+              <p>One account overview for cross margin and collateral management.</p>
+            </div>
+            <button class="btn btn-primary">Check Details</button>
+          </div>
+          <div class="unified-grid">
+            <div class="card unified-stats-card">
+              <div class="stat-row"><span>IM</span><span class="positive">0.00% 0.00 USD</span></div>
+              <div class="stat-row"><span>MM</span><span class="positive">0.00% 0.00 USD</span></div>
+              <div class="stat-row big"><span>Total Equity</span><span>0.00 USD</span></div>
+              <div class="stat-row big"><span>Margin Balance</span><span>0.00 USD</span></div>
+              <div class="stat-row big"><span>Unrealized PnL</span><span>0.00 USD</span></div>
+            </div>
+            <div class="card unified-table-card">
+              <div class="table-search">
+                <input type="search" placeholder="btc3l" />
+                <label><input type="checkbox" /> Hide small balances ($-1 to $1)</label>
+                <label><input type="checkbox" /> Hide Cleared Liabilities</label>
+              </div>
+              <table>
+                <thead><tr><th>Currency</th><th>Equity</th><th>Wallet Balance</th><th>Borrowed</th><th>Action</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>BTC3L</td>
+                    <td>0.00000000<br><span class="mini-label">≈0.00 USD</span></td>
+                    <td>0.00000000</td>
+                    <td>0.00000000</td>
+                    <td><button class="link-btn">Convert Small Balances →</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

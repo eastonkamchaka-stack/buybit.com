@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUYBIT P&L Analysis (Mobile)</title>
+  <link rel="stylesheet" href="styles.mobile.css" />
+</head>
+<body>
+  <div class="global-nav">
+    <a class="global-link" href="overview.html">Overview</a>
+    <a class="global-link" href="assets.html">Assets</a>
+    <a class="global-link active" href="pnl.html">P&L</a>
+    <a class="global-link" href="trade.html">Trade</a>
+    <a class="global-link" href="unified.html">Unified</a>
+    <a class="global-link" href="withdraw.html">Withdraw</a>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="../buybit logo.png" alt="BUYBIT" class="brand-logo" />
+        <span>BUYBIT</span>
+      </div>
+      <nav class="nav-menu">
+        <a class="nav-item" href="overview.html"><span></span>Overview</a>
+        <a class="nav-item" href="assets.html"><span></span>Assets Overview</a>
+        <a class="nav-item" href="unified.html"><span></span>Unified Trading</a>
+        <div class="nav-heading">Analysis</div>
+        <a class="nav-item active" href="pnl.html"><span></span>P&amp;L Analysis</a>
+        <a class="nav-item" href="trade.html"><span></span>Trading Panel</a>
+        <div class="nav-heading">Tools</div>
+        <a class="nav-item" href="withdraw.html"><span></span>Withdraw</a>
+      </nav>
+    </aside>
+    <div class="main-panel">
+      <header class="topbar">
+        <div class="top-left">
+          <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+          <div class="breadcrumbs">
+            <strong>BUYBIT</strong>
+            <span>•</span>
+            <span>P&amp;L Analysis</span>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-secondary">Deposit</button>
+          <button class="icon-btn">🔍</button>
+          <button class="icon-btn">🌐</button>
+          <button class="profile-btn">MNT</button>
+          <button class="btn btn-secondary logout-btn">Logout</button>
+        </div>
+      </header>
+      <main class="content">
+        <section class="section section-panel">
+          <div class="section-header">
+            <div>
+              <h2>P&amp;L Analysis</h2>
+              <p>Keep a pulse on historical and daily profit performance.</p>
+            </div>
+            <div class="tab-row">
+              <button class="tab active">Last 30 D</button>
+              <button class="tab">Last 60 D</button>
+              <button class="tab">Last 90 D</button>
+              <button class="tab">Last 180 D</button>
+            </div>
+          </div>
+          <div class="pnl-grid">
+            <div class="card pnl-summary-card">
+              <div class="summary-block">
+                <span>Today's P&amp;L (USD)</span>
+                <div class="big-number positive">+0.00 <span>(+18.68%)</span></div>
+              </div>
+              <div class="summary-block">
+                <span>Historical P&amp;L (USD)</span>
+                <div class="big-number positive">+0.03 <span>(+0.24%)</span></div>
+              </div>
+              <div class="meta-note">Daily maintenance: 12AM – 4AM UTC. PnL data may be unavailable during this time.</div>
+            </div>
+            <div class="card pnl-chart-card">
+              <div class="chart-box"></div>
+            </div>
+            <div class="card pnl-chart-card">
+              <div class="chart-box"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

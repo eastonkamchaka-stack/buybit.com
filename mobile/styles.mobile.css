@@ -1,0 +1,40 @@
+@import url("../styles.css");
+
+/* Mobile-specific overrides to ensure neat portrait layout */
+html, body {
+  font-size: 16px;
+}
+
+/* Slightly larger base text for readability */
+body {
+  font-size: 16px;
+}
+
+.legal-panel {
+  width: 100% !important;
+  border-radius: 12px !important;
+}
+
+.legal-header {
+  padding: 18px !important;
+}
+
+.legal-body {
+  padding: 14px !important;
+}
+
+.doc-title { font-size: 1.05rem; }
+.doc-subtitle { font-size: 0.95rem; }
+.doc-heading { font-size: 1rem; }
+
+/* Force stacked table layout for mobile */
+.compliance-table { border: 0; table-layout: auto; }
+.compliance-table thead { display: none; }
+.compliance-table tbody tr { display: block; margin-bottom: 12px; padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); }
+.compliance-table td { display: block; padding: 6px 0; border: none; }
+.compliance-table td:first-child { font-weight: 700; }
+
+.btn { width: 100%; }
+
+/* Use comfortable line height for long legal text */
+.legal-doc pre { line-height: 1.8; font-size: 15px; }

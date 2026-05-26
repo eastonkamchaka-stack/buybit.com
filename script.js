@@ -1,5 +1,7 @@
 const AUTH_USERNAME = 'LetLoveLead@buybit';
 const AUTH_PASSWORD = 'LetLoveLead420';
+
+// Ensure mobile copies work with the same JS behavior — no extra action needed here.
 const AUTH_KEY = 'buybit-authenticated';
 const REDIRECT_KEY = 'buybit-redirect';
 

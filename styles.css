@@ -825,6 +825,107 @@ button:disabled,
   padding: 24px;
 }
 
+/* Responsive adjustments for small screens (portrait mobile) */
+@media (max-width: 600px) {
+  .legal-panel {
+    width: calc(100% - 32px);
+    border-radius: 18px;
+  }
+
+  .legal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 20px 0;
+    gap: 8px;
+  }
+
+  .legal-badge {
+    align-self: flex-start;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .legal-body {
+    padding: 18px 18px 22px;
+  }
+
+  .legal-doc {
+    padding: 14px;
+  }
+
+  .doc-title {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .doc-subtitle {
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .lead {
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+
+  /* Make compliance tables readable on narrow screens */
+  .compliance-table {
+    border: 0;
+  }
+
+  .compliance-table thead {
+    display: none;
+  }
+
+  .compliance-table tbody tr {
+    display: block;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 10px;
+    background: rgba(255,255,255,0.01);
+  }
+
+  .compliance-table td {
+    display: block;
+    padding: 6px 8px;
+    border: none;
+    font-size: 0.95rem;
+  }
+
+  .compliance-table td:first-child {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .compliance-table td:nth-child(2) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  .compliance-table td:nth-child(3) {
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .document-footer {
+    padding: 14px;
+  }
+
+  .checkbox-field {
+    padding: 14px;
+  }
+
+  .legal-actions {
+    justify-content: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
 .asset-summary-card .card-title,
 .asset-table-card .card-title,
 .asset-chart-card .card-title,

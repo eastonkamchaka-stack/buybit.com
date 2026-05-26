@@ -1,0 +1,12 @@
+{
+  "name": "buybit-dashboard",
+  "version": "1.0.0",
+  "description": "Local BUYBIT static site breakpoint screenshot helper",
+  "private": true,
+  "scripts": {
+    "screenshot": "node capture-breakpoints.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.40.0"
+  }
+}

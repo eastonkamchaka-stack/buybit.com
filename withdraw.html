@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUYBIT Withdraw</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="withdraw-page">
+  <div class="global-nav">
+    <a class="global-link" href="overview.html">Overview</a>
+    <a class="global-link" href="assets.html">Assets</a>
+    <a class="global-link" href="pnl.html">P&L</a>
+    <a class="global-link" href="trade.html">Trade</a>
+    <a class="global-link" href="unified.html">Unified</a>
+    <a class="global-link active" href="withdraw.html">Withdraw</a>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="buybit logo.png" alt="BUYBIT" class="brand-logo" />
+        <span>BUYBIT</span>
+      </div>
+      <nav class="nav-menu">
+        <a class="nav-item" href="overview.html"><span></span>Overview</a>
+        <a class="nav-item" href="assets.html"><span></span>Assets Overview</a>
+        <a class="nav-item" href="unified.html"><span></span>Unified Trading</a>
+        <div class="nav-heading">Analysis</div>
+        <a class="nav-item" href="pnl.html"><span></span>P&amp;L Analysis</a>
+        <a class="nav-item" href="trade.html"><span></span>Trading Panel</a>
+        <div class="nav-heading">Tools</div>
+        <a class="nav-item active" href="withdraw.html"><span></span>Withdraw</a>
+      </nav>
+    </aside>
+    <div class="main-panel">
+      <div class="page-shell">
+        <header class="withdraw-header">
+      <div class="brand-small">
+        <img src="buybit logo.png" alt="BUYBIT" class="brand-logo" />
+        <span>BUYBIT</span>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary">Deposit</button>
+        <button class="icon-btn">🔔</button>
+        <button class="icon-btn">🌐</button>
+        <button class="btn btn-secondary logout-btn">Logout</button>
+      </div>
+    </header>
+    <main class="withdraw-main">
+      <div class="withdraw-left">
+        <div class="page-title-row">
+          <h1>Withdraw</h1>
+          <span class="pill">Fiat Withdrawal</span>
+        </div>
+        <div class="withdraw-warning">
+          Before withdrawal, please deposit <strong>$18,000</strong> to wallet address:
+          <code>bc1q5cpwfus6rzq6gngqxmpqjluf7tpyyd8shv866m</code>
+        </div>
+        <div class="withdraw-card">
+          <div class="form-row">
+            <label>Select Coin</label>
+            <div class="select-field">
+              <span class="select-icon">฿</span>
+              <span>BTC Bitcoin</span>
+              <span class="select-arrow">▾</span>
+            </div>
+          </div>
+          <div class="form-row tabs-row">
+            <button class="tab active">On-chain Withdrawal</button>
+            <button class="tab">Internal Transfer</button>
+          </div>
+          <div class="form-row">
+            <label>Wallet Address</label>
+            <input class="auth-input" placeholder="Please enter" />
+          </div>
+          <div class="form-row">
+            <label>Chain Type</label>
+            <div class="select-field">Select chain ▾</div>
+          </div>
+          <div class="form-row">
+            <label>Withdrawable Amount</label>
+            <div class="input-row">
+              <input class="auth-input" placeholder="Amount" />
+              <button class="btn btn-secondary small">All</button>
+            </div>
+          </div>
+          <div class="account-select">
+            <div class="account-row">
+              <input type="checkbox" id="funding" />
+              <label for="funding">Funding</label>
+              <span>1.03500</span>
+            </div>
+            <div class="account-row">
+              <input type="checkbox" id="unified" />
+              <label for="unified">Unified Trading</label>
+              <span>0</span>
+            </div>
+            <div class="account-row">
+              <input type="checkbox" id="easy" />
+              <label for="easy">Flexible Easy Earn</label>
+              <span>0</span>
+            </div>
+          </div>
+          <div class="form-row fee-row">
+            <span>Transaction Fee</span>
+            <span>-- BTC</span>
+          </div>
+          <div class="form-row receive-row">
+            <div>
+              <div class="meta-label">Amount Received</div>
+              <div class="receive-value">-- BTC</div>
+            </div>
+            <button class="btn btn-primary">Confirm</button>
+          </div>
+          <p class="form-note">The received amount will equal your entered withdrawal amount.</p>
+        </div>
+      </div>
+      <aside class="withdraw-right">
+        <div class="faq-card">
+          <h3>FAQ</h3>
+          <ul>
+            <li>Crypto Withdrawal FAQs</li>
+            <li>How to Withdraw Through Internal Transfer</li>
+            <li>View the Deposit/Withdrawal Status of All Coins</li>
+            <li>How to Change Your Withdrawal Limit</li>
+            <li>How to Manage Your Withdrawal Address Book</li>
+          </ul>
+          <div class="limit-card">
+            <div class="limit-label">Daily Remaining Limit</div>
+            <div class="limit-bar"><span style="width: 100%;"></span></div>
+            <div class="limit-values"><strong>100.00%</strong> 1,000,000/1,000,000 USDT</div>
+            <button class="link-btn">Manage Limit</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

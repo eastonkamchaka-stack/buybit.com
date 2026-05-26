@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUYBIT Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-page">
+  <div class="global-nav">
+    <a class="global-link active" href="login.html">Login</a>
+  </div>
+  <div class="auth-shell">
+    <section class="auth-hero">
+      <div class="auth-copy">
+        <h1>Buy & sell directly with BUYBIT P2P</h1>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-icon">💱</div>
+            <h3>Supported fiat</h3>
+            <div class="stat-value live-number" data-value="60" data-format="int">60</div>
+            <p>40+ Countries<br />100+ Payment methods</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🪙</div>
+            <h3>Cryptos</h3>
+            <div class="stat-value live-number" data-value="300" data-format="int">300</div>
+            <p>10k+ Advertisements<br />100k+ Daily orders</p>
+          </div>
+        </div>
+      </div>
+      <div class="auth-panel">
+        <div class="auth-panel-top">
+          <img src="buybit logo.png" alt="BUYBIT" class="auth-logo" />
+          <button class="icon-btn small">🌐</button>
+        </div>
+        <div class="auth-card">
+          <div class="auth-card-header">
+            <div>
+              <h2>Welcome to BUYBIT</h2>
+            </div>
+            <a class="link-btn" href="login.html">Sign up</a>
+          </div>
+
+          <label class="input-label">Username</label>
+          <input id="login-username" class="auth-input" type="text" placeholder="Username" />
+          <label class="input-label">Password</label>
+          <input id="login-password" class="auth-input" type="password" placeholder="Password" />
+          <div class="auth-error" id="auth-error" aria-live="polite"></div>
+          <button id="login-submit" class="btn btn-primary btn-block">Login</button>
+          <button class="btn btn-secondary btn-block">Log in with passkey</button>
+          <p class="auth-note">Enter your username and password to continue.</p>
+
+          <div class="divider-row"><span></span><small>or log in with</small><span></span></div>
+          <div class="social-row">
+            <button class="social-btn">Google</button>
+            <button class="social-btn">Apple</button>
+            <button class="social-btn">Telegram</button>
+          </div>
+          <a class="link-btn auth-subaccount" href="login.html">Log in with Subaccount →</a>
+        </div>
+      </div>
+    </section>
+    <button class="support-circle">?</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

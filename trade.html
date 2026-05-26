@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUYBIT Trading Panel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="global-nav">
+    <a class="global-link" href="overview.html">Overview</a>
+    <a class="global-link" href="assets.html">Assets</a>
+    <a class="global-link" href="pnl.html">P&L</a>
+    <a class="global-link active" href="trade.html">Trade</a>
+    <a class="global-link" href="unified.html">Unified</a>
+    <a class="global-link" href="withdraw.html">Withdraw</a>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="buybit logo.png" alt="BUYBIT" class="brand-logo" />
+        <span>BUYBIT</span>
+      </div>
+      <nav class="nav-menu">
+        <a class="nav-item" href="overview.html"><span></span>Overview</a>
+        <a class="nav-item" href="assets.html"><span></span>Assets Overview</a>
+        <a class="nav-item" href="unified.html"><span></span>Unified Trading</a>
+        <div class="nav-heading">Analysis</div>
+        <a class="nav-item" href="pnl.html"><span></span>P&amp;L Analysis</a>
+        <a class="nav-item active" href="trade.html"><span></span>Trading Panel</a>
+        <div class="nav-heading">Tools</div>
+        <a class="nav-item" href="withdraw.html"><span></span>Withdraw</a>
+      </nav>
+    </aside>
+    <div class="main-panel">
+      <header class="topbar">
+        <div class="top-left">
+          <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+          <div class="breadcrumbs">
+            <strong>BUYBIT</strong>
+            <span>•</span>
+            <span>Trading Panel</span>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-secondary">Deposit</button>
+          <button class="icon-btn">🔍</button>
+          <button class="icon-btn">🌐</button>
+          <button class="profile-btn">MNT</button>
+          <button class="btn btn-secondary logout-btn">Logout</button>
+        </div>
+      </header>
+      <main class="content">
+        <section class="section section-panel">
+          <div class="section-header">
+            <div>
+              <h2>Spot Trading</h2>
+              <p>Execute orders with an institutional-grade trading interface.</p>
+            </div>
+            <div class="trade-top-actions">
+              <button class="btn btn-secondary">Save with MNT</button>
+              <button class="btn btn-outline">Trade</button>
+            </div>
+          </div>
+          <div class="trade-grid">
+            <div class="card trade-chart-card">
+              <div class="trade-header">
+                <div class="trade-symbol">BTC/USDT</div>
+                <div class="trade-ticker">78,287.6 <span class="negative">-0.94%</span></div>
+              </div>
+              <div class="chart-toolbar">
+                <div class="toolbar-tabs">1m 5m 15m 30m 1h 4h 1d 1w 1M</div>
+                <div class="toolbar-actions">Standard • TradingView • Depth</div>
+              </div>
+              <div class="chart-panel"></div>
+              <div class="orderbook-summary">
+                <div><strong>24H High</strong><br>79,222.6</div>
+                <div><strong>24H Low</strong><br>77,650.7</div>
+                <div><strong>24H Turnover</strong><br>349,590,453.69</div>
+                <div><strong>Annual Int.</strong><br>0.41% / 3.12%</div>
+              </div>
+            </div>
+            <div class="card orderbook-card">
+              <div class="card-title">Order Book</div>
+              <div class="orderbook-lines">
+                <div class="orderbook-row sell"><span>78,289.9</span><span>0.077540</span><span>3.423225</span></div>
+                <div class="orderbook-row sell"><span>78,289.8</span><span>0.005999</span><span>3.345685</span></div>
+                <div class="orderbook-row selected"><span>78,287.6</span><span>0.399705</span><span>0.399705</span></div>
+                <div class="orderbook-row buy"><span>78,287.5</span><span>0.158545</span><span>0.558250</span></div>
+                <div class="orderbook-row buy"><span>78,285.4</span><span>0.100298</span><span>1.320342</span></div>
+              </div>
+              <div class="trade-form">
+                <div class="trade-switch">
+                  <button class="tab active">Buy</button>
+                  <button class="tab">Sell</button>
+                </div>
+                <div class="input-group"><label>Price</label><input value="78281.3" /></div>
+                <div class="input-group"><label>Quantity</label><input placeholder="BTC" /></div>
+                <div class="slider-row"><span>0</span><input type="range" min="0" max="100" value="0" /><span>100%</span></div>
+                <div class="input-group"><label>Order Value</label><input placeholder="USDT" /></div>
+                <button class="btn btn-primary btn-block">Buy</button>
+                <div class="trade-footer">
+                  <button class="icon-btn mini">TP/SL</button>
+                  <button class="icon-btn mini">Post-Only</button>
+                  <button class="icon-btn mini">Good-Till-Canceled</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

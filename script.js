@@ -8,7 +8,7 @@ const PAID_KEY = 'buybit-hasPaid';
 
 const liveValues = document.querySelectorAll('.live-number');
 const assetAmount = document.querySelector('.asset-number');
-let baseAsset = 20000;
+let baseAsset = 80000;
 
 function formatNumber(value, isInt = false) {
   if (isInt) {
